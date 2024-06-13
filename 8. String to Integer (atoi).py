@@ -90,41 +90,51 @@ Constraints:
 s consists of English letters (lower-case and upper-case), digits (0-9), ' ', '+', '-', and '.'.
 
 */
-def myAtoi(s: str) -> int:
-    # Constants for the 32-bit signed integer range
-    INT_MAX = 2**31 - 1
-    INT_MIN = -2**31
-    
-    # Step 1: Ignore leading whitespace
-    i = 0
-    n = len(s)
-    
-    while i < n and s[i] == ' ':
-        i += 1
-    
-    # Step 2: Determine the sign
-    sign = 1
-    if i < n and (s[i] == '-' or s[i] == '+'):
-        if s[i] == '-':
-            sign = -1
-        i += 1
-    
-    # Step 3: Read the digits
-    num = 0
-    while i < n and s[i].isdigit():
-        digit = int(s[i])
-        # Check for overflow and underflow
-        if num > (INT_MAX - digit) // 10:
-            return INT_MAX if sign == 1 else INT_MIN
-        num = num * 10 + digit
-        i += 1
-    
-    # Apply sign to the result
-    return sign * num
+#include <iostream>
+#include <climits>
+#include <cctype>
 
-# Examples
-print(myAtoi("42"))         # Output: 42
-print(myAtoi("   -042"))    # Output: -42
-print(myAtoi("1337c0d3"))   # Output: 1337
-print(myAtoi("0-1"))        # Output: 0
-print(myAtoi("words and 987"))  # Output: 0
+class Solution {
+public:
+    int myAtoi(const std::string& s) {
+        int i = 0;
+        int sign = 1;
+        long result = 0;
+
+        // Step 1: Ignore leading whitespace
+        while (i < s.length() && s[i] == ' ') {
+            i++;
+        }
+
+        // Step 2: Determine the sign
+        if (i < s.length() && (s[i] == '-' || s[i] == '+')) {
+            if (s[i] == '-') {
+                sign = -1;
+            }
+            i++;
+        }
+
+        // Step 3: Read the digits
+        while (i < s.length() && isdigit(s[i])) {
+            int digit = s[i] - '0';
+            result = result * 10 + digit;
+
+            // Step 4: Handle overflow and underflow
+            if (sign == 1 && result > INT_MAX) {
+                return INT_MAX;
+            }
+            if (sign == -1 && -result < INT_MIN) {
+                return INT_MIN;
+            }
+
+            i++;
+        }
+
+        // Apply sign to the result
+        result *= sign;
+
+        // Return the integer result
+        return (int)result;
+    }
+};
+
