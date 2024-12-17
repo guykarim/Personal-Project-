@@ -1,5 +1,5 @@
-/*
-Given an input string s and a pattern p, implement regular expression matching with support for '.' and '*' where:
+
+'''Given an input string s and a pattern p, implement regular expression matching with support for '.' and '*' where:
 
 '.' Matches any single character.​​​​
 '*' Matches zero or more of the preceding element.
@@ -30,8 +30,8 @@ Constraints:
 1 <= p.length <= 20
 s contains only lowercase English letters.
 p contains only lowercase English letters, '.', and '*'.
-It is guaranteed for each appearance of the character '*', there will be a previous valid character to match.
-*/
+It is guaranteed for each appearance of the character '*', there will be a previous valid character to match.'''
+
 #include <iostream>
 #include <vector>
 #include <string>

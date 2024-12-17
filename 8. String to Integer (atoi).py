@@ -1,5 +1,5 @@
-/*
-8. String to Integer (atoi)
+
+'''8. String to Integer (atoi)
 Medium
 Topics
 Companies
@@ -87,9 +87,9 @@ Reading stops at the first non-digit character 'w'.
 Constraints:
 
 0 <= s.length <= 200
-s consists of English letters (lower-case and upper-case), digits (0-9), ' ', '+', '-', and '.'.
+s consists of English letters (lower-case and upper-case), digits (0-9), ' ', '+', '-', and '.'.'''
 
-*/
+
 #include <iostream>
 #include <climits>
 #include <cctype>

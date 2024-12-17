@@ -1,4 +1,4 @@
-/*
+'''
 Given an input string s and a pattern p, implement regular expression matching with support for '.' and '*' where:
 
 '.' Matches any single character.​​​​
@@ -31,7 +31,7 @@ Constraints:
 s contains only lowercase English letters.
 p contains only lowercase English letters, '.', and '*'.
 It is guaranteed for each appearance of the character '*', there will be a previous valid character to match.
-*/
+'''
 
 def isMatch(s: str, p: str) -> bool:
     m, n = len(s), len(p)
